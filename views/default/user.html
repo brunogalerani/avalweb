@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+<script>
+    $(document).ready(function(){
+        loadList();
+    });
+    
+    function loadList(){
+        $('#target').load('dados');
+    }
+</script>
+
+<h2> Dados salvos: </h2>
+
+<div>
+    <h3> Nome: </h3>
+    <div id="target"></div>
+</div>
+
+<a href="index">Carregar dados </a>
