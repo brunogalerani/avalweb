@@ -1,13 +1,7 @@
 def index():
     
-    form = SQLFORM(db.teste)
-    def validate(form):
-        if form.vars.name != '' :
-            db.teste.insert(name=form.vars.name)
-        else:
-            form.errors.name = 'insira dados'
-    
-    if form.accepts(request.vars, session, onvalidation = validate):
+    form = SQLFORM(db.teste)    
+    if form.accepts(request.vars, session):
         response.flash = 'deu bom'
         
     return dict(form=form)
