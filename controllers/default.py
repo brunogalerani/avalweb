@@ -1,6 +1,6 @@
 def index():
     
-    form = SQLFORM(db.teste)    
+    form = SQLFORM(db.aluno_dados)    
     if form.accepts(request.vars, session):
         response.flash = 'deu bom'
         
@@ -14,6 +14,6 @@ def user():
 
 def dados():
     list = []
-    for elem in db(db.teste).select():
+    for elem in db(db.aluno_dados).select():
         list.append(elem.name + "<br>")
     return list

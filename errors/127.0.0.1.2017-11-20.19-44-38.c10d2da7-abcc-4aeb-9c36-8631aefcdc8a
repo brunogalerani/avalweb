@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<class '_mysql_exceptions.OperationalError'> (1071, 'Specified key was too long; max key length is 767 bytes')"
+p3
+sS'layer'
+p4
+S'C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 04834D10, file "C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py", line 1>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py", line 7, in <module>\n    primarykey=[\'user_aluno\']\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 587, in define_table\n    table = self.lazy_define_table(tablename, *fields, **args)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 621, in lazy_define_table\n    polymodel=polymodel)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 797, in create_table\n    return self.migrator.create_table(*args, **kwargs)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\migrator.py", line 277, in create_table\n    self.adapter.create_sequence_and_triggers(query, table)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 880, in create_sequence_and_triggers\n    self.execute(query)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\__init__.py", line 67, in wrap\n    return f(*args, **kwargs)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 412, in execute\n    rv = self.cursor.execute(command, *args[1:], **kwargs)\n  File "MySQLdb/cursors.py", line 205, in execute\n  File "MySQLdb/connections.py", line 36, in defaulterrorhandler\nOperationalError: (1071, \'Specified key was too long; max key length is 767 bytes\')\n'
+p11
+s.
