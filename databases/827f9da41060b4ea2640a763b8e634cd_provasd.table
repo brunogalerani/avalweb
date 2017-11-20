@@ -44,12 +44,12 @@ I00
 sg8
 I512
 sg9
-S'VARCHAR(64), CONSTRAINT `FK_provasd_user_prof__constraint` FOREIGN KEY (`user_prof`) REFERENCES `login` (`user`) ON DELETE CASCADE'
+S'VARCHAR(64), CONSTRAINT `FK_provasd_user_prof__constraint` FOREIGN KEY (`user_prof`) REFERENCES `professor` (`user_prof`) ON DELETE CASCADE'
 p17
 sg11
 I00
 sg12
-S'reference login'
+S'reference professor'
 p18
 ssS'parte'
 p19

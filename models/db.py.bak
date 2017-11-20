@@ -21,7 +21,7 @@ db.define_table(
 db.define_table(
     'questoes',
     Field('topic_name'),
-    Field('user_prof', db.professor),
+    Field('user_prof', db.login),
     Field('enunciado', 'text'),
     Field('video_enunc', 'upload', default=''),
     Field('resposta', 'text'),
@@ -46,7 +46,7 @@ db.define_table(
 db.define_table(
     'provas',
     Field('cod_prova', 'integer'),
-    Field('user_prof', db.professor),
+    Field('user_prof', db.login),
     Field('topic_name'),
     Field('modo_prova'),
     Field('aval')
@@ -55,7 +55,7 @@ db.define_table(
 db.define_table(
     'provasd',
     Field('cod_prova', db.provas),
-    Field('user_prof', db.professor),
+    Field('user_prof', db.login),
     Field('tempo', 'time'),
     Field('dificuldade'),
     Field('dif_inicio'),
@@ -68,7 +68,7 @@ db.define_table(
 db.define_table(
     'provase',
     Field('cod_prova', db.provas),
-    Field('user_prof', db.professor),
+    Field('user_prof', db.login),
     Field('tempo', 'time'),
     Field('num_e', 'integer'),
     Field('num_m', 'integer'),
@@ -82,8 +82,8 @@ db.define_table(
 
 db.define_table(
     'provas_uploads',
-    Field('user_prof', db.professor),
-    Field('user_aluno', db.aluno),
+    Field('user_prof', db.login),
+    Field('user_aluno', db.aluno_login),
     Field('cod_prova', db.provas),
     Field('nota', 'double'),
     Field('prova_up', 'upload', default='')

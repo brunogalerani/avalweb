@@ -18,17 +18,8 @@ def dados():
         list.append(elem.name + "<br>")
     return list
 
-
 def cadastro():
-    form = SQLFORM(db.professor)
-    if form.accepts(request.vars, session):
-        response.flash = 'deu bom'
+    form = SQLFORM(db.login)
+    form2 = SQLFORM(db.professor)
 
-    return dict(form=form)
-
-def login():
-    form = SQLFORM(db.professor)
-    if form.accepts(request.vars, session):
-        response.flash = 'deu bom'
-
-    return dict(form=form)
+    return dict(form=form, form2=form2)
