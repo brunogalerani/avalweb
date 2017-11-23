@@ -1,2 +1,13 @@
 {{extend 'layout.html'}}
-<h1>Bem vindo {{=usuario}} </h1>
+
+<div class="video_enunc" style="display: inline-block;">
+                   <p> {{=video_enunc}} </p>
+
+  <input type="file" accept="video/*"/>
+  <video width="320" height="240" controls>
+  <source src={{=video_enunc}} type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+  
+       </div>

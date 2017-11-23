@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'<class \'_mysql_exceptions.ProgrammingError\'> (1146, "Table \'avalweb.aluno\' doesn\'t exist")'
+p3
+sS'layer'
+p4
+S'C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 048A6C38, file "C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py", line 1>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\models\\db.py", line 8, in <module>\n    Field(\'email_aluno\'),\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 587, in define_table\n    table = self.lazy_define_table(tablename, *fields, **args)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 621, in lazy_define_table\n    polymodel=polymodel)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 797, in create_table\n    return self.migrator.create_table(*args, **kwargs)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\migrator.py", line 314, in create_table\n    fake_migrate=fake_migrate\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\migrator.py", line 447, in migrate_table\n    self.adapter.execute(sub_query)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\__init__.py", line 67, in wrap\n    return f(*args, **kwargs)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 412, in execute\n    rv = self.cursor.execute(command, *args[1:], **kwargs)\n  File "MySQLdb/cursors.py", line 205, in execute\n  File "MySQLdb/connections.py", line 36, in defaulterrorhandler\nProgrammingError: (1146, "Table \'avalweb.aluno\' doesn\'t exist")\n'
+p11
+s.

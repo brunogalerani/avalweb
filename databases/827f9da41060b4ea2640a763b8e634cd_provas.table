@@ -44,7 +44,7 @@ I00
 sg8
 I512
 sg9
-S'VARCHAR(64), CONSTRAINT `FK_provas_user_prof__constraint` FOREIGN KEY (`user_prof`) REFERENCES `professor` (`user_prof`) ON DELETE CASCADE'
+S'INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE'
 p17
 sg11
 I00

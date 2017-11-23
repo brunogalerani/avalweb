@@ -6,7 +6,6 @@ db.define_table(
     Field('passw_aluno'),
     Field('nome_aluno'),
     Field('email_aluno'),
-    primarykey=['user_aluno']
 );
 
 db.define_table(
@@ -15,7 +14,6 @@ db.define_table(
     Field('passw_prof'),
     Field('nome_prof'),
     Field('email_prof'),
-    primarykey=['user_prof']
 );
 
 db.define_table(
@@ -62,7 +60,6 @@ db.define_table(
     Field('topic_name'),
     Field('parte'),
     Field('num_total', 'integer'),
-    primarykey=['cod_prova']
 )
 
 db.define_table(
@@ -77,7 +74,6 @@ db.define_table(
     Field('parte'),
     Field('num_total', 'integer'),
     Field('cod_questoes'),
-    primarykey=['cod_prova']
 )
 
 db.define_table(
