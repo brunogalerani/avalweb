@@ -6,7 +6,6 @@ db.define_table(
     Field('passw_aluno'),
     Field('nome_aluno'),
     Field('email_aluno'),
-    primarykey=['user_aluno']
 );
 
 db.define_table(
@@ -15,13 +14,12 @@ db.define_table(
     Field('passw_prof'),
     Field('nome_prof'),
     Field('email_prof'),
-    primarykey=['user_prof']
 );
 
 db.define_table(
     'questoes',
     Field('topic_name'),
-    Field('user_prof', db.login),
+    Field('user_prof', db.professor),
     Field('enunciado', 'text'),
     Field('video_enunc', 'upload', default=''),
     Field('resposta', 'text'),
@@ -46,7 +44,7 @@ db.define_table(
 db.define_table(
     'provas',
     Field('cod_prova', 'integer'),
-    Field('user_prof', db.login),
+    Field('user_prof', db.professor),
     Field('topic_name'),
     Field('modo_prova'),
     Field('aval')
@@ -55,20 +53,19 @@ db.define_table(
 db.define_table(
     'provasd',
     Field('cod_prova', db.provas),
-    Field('user_prof', db.login),
+    Field('user_prof', db.professor),
     Field('tempo', 'time'),
     Field('dificuldade'),
     Field('dif_inicio'),
     Field('topic_name'),
     Field('parte'),
     Field('num_total', 'integer'),
-    primarykey=['cod_prova']
 )
 
 db.define_table(
     'provase',
     Field('cod_prova', db.provas),
-    Field('user_prof', db.login),
+    Field('user_prof', db.professor),
     Field('tempo', 'time'),
     Field('num_e', 'integer'),
     Field('num_m', 'integer'),
@@ -77,13 +74,12 @@ db.define_table(
     Field('parte'),
     Field('num_total', 'integer'),
     Field('cod_questoes'),
-    primarykey=['cod_prova']
 )
 
 db.define_table(
     'provas_uploads',
-    Field('user_prof', db.login),
-    Field('user_aluno', db.aluno_login),
+    Field('user_prof', db.professor),
+    Field('user_aluno', db.aluno),
     Field('cod_prova', db.provas),
     Field('nota', 'double'),
     Field('prova_up', 'upload', default='')
