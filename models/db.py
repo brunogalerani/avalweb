@@ -2,78 +2,77 @@ db=DAL('mysql://root:root@localhost/avalweb');
 
 db.define_table(
     'aluno',
-    Field('user_aluno', length=64),
-    Field('passw_aluno'),
-    Field('nome_aluno'),
-    Field('email_aluno'),
+    Field('user_aluno', length=64, requires=IS_NOT_EMPTY(), unique=True),
+    Field('passw_aluno', 'password', requires=IS_NOT_EMPTY()),
+    Field('nome_aluno', requires=IS_NOT_EMPTY()),
+    Field('email_aluno', length=100, requires=IS_NOT_EMPTY(), unique=True),
 );
 
 db.define_table(
     'professor',
-    Field('user_prof', length=64),
-    Field('passw_prof'),
-    Field('nome_prof'),
-    Field('email_prof'),
+    Field('user_prof', length=64, requires=IS_NOT_EMPTY(), unique=True),
+    Field('passw_prof', 'password', requires=IS_NOT_EMPTY()),
+    Field('nome_prof', requires=IS_NOT_EMPTY()),
+    Field('email_prof', length=100, requires=IS_NOT_EMPTY(), unique=True),
 );
 
 db.define_table(
     'questoes',
-    Field('topic_name'),
-    Field('user_prof', db.professor),
-    Field('enunciado', 'text'),
-    Field('video_enunc', 'upload', default=''),
-    Field('resposta', 'text'),
-    Field('resp1', 'text'),
-    Field('resp2', 'text'),
-    Field('resp3', 'text'),
-    Field('feed_resp', 'text'),
-    Field('feed_r1', 'text'),
-    Field('feed_r2', 'text'),
-    Field('feed_r3', 'text'),
-    Field('video_resp', 'upload', default=''),
-    Field('video_r1', 'upload', default=''),
-    Field('video_r2', 'upload', default=''),
-    Field('video_r3', 'upload', default=''),
-    Field('dificuldade', 'text'),
-    Field('acerto_goto', 'text'),
-    Field('erro_goto', 'text'),
-    Field('topic', 'text'),
-    Field('parte', 'text')
+    Field('topic_name', requires=IS_NOT_EMPTY()),
+    Field('user_prof', db.professor, requires=IS_NOT_EMPTY()),
+    Field('enunciado', 'text', requires=IS_NOT_EMPTY()),
+    Field('video_enunc', 'upload', default='', requires=IS_NOT_EMPTY()),
+    Field('resposta', 'text', requires=IS_NOT_EMPTY()),
+    Field('resp1', 'text', requires=IS_NOT_EMPTY()),
+    Field('resp2', 'text', requires=IS_NOT_EMPTY()),
+    Field('resp3', 'text', requires=IS_NOT_EMPTY()),
+    Field('feed_resp', 'text', requires=IS_NOT_EMPTY()),
+    Field('feed_r1', 'text', requires=IS_NOT_EMPTY()),
+    Field('feed_r2', 'text', requires=IS_NOT_EMPTY()),
+    Field('feed_r3', 'text', requires=IS_NOT_EMPTY()),
+    Field('video_resp', 'upload', default='', requires=IS_NOT_EMPTY()),
+    Field('video_r1', 'upload', default='', requires=IS_NOT_EMPTY()),
+    Field('video_r2', 'upload', default='', requires=IS_NOT_EMPTY()),
+    Field('video_r3', 'upload', default='', requires=IS_NOT_EMPTY()),
+    Field('dificuldade', 'text', requires=IS_NOT_EMPTY()),
+    Field('acerto_goto', 'text', requires=IS_NOT_EMPTY()),
+    Field('erro_goto', 'text', requires=IS_NOT_EMPTY()),
+    Field('topic', 'text', requires=IS_NOT_EMPTY()),
+    Field('parte', 'text', requires=IS_NOT_EMPTY())
 )
 
 db.define_table(
-    'provas',
-    Field('cod_prova', 'integer'),
+    'provas',    
     Field('user_prof', db.professor),
-    Field('topic_name'),
-    Field('modo_prova'),
-    Field('aval')
+    Field('topic_name', requires=IS_NOT_EMPTY()),
+    Field('modo_prova', requires=IS_NOT_EMPTY()),
+    Field('aval', requires=IS_NOT_EMPTY())
 )
 
 db.define_table(
     'provasd',
-    Field('cod_prova', db.provas),
+    Field('cod_prova', db.provas, requires=IS_NOT_EMPTY()),
     Field('user_prof', db.professor),
-    Field('tempo', 'time'),
-    Field('dificuldade'),
-    Field('dif_inicio'),
-    Field('topic_name'),
-    Field('parte'),
-    Field('num_total', 'integer'),
+    Field('tempo', 'time', requires=IS_NOT_EMPTY()),
+    Field('dificuldade', requires=IS_NOT_EMPTY()),
+    Field('dif_inicio', requires=IS_NOT_EMPTY()),
+    Field('topic_name', requires=IS_NOT_EMPTY()),
+    Field('parte', requires=IS_NOT_EMPTY()),
+    Field('num_total', 'integer', requires=IS_NOT_EMPTY()),
 )
 
 db.define_table(
     'provase',
-    Field('cod_prova', db.provas),
+    Field('cod_prova', db.provas, requires=IS_NOT_EMPTY()),
     Field('user_prof', db.professor),
-    Field('tempo', 'time'),
-    Field('num_e', 'integer'),
-    Field('num_m', 'integer'),
-    Field('num_h', 'integer'),
-    Field('topic_name'),
-    Field('parte'),
-    Field('num_total', 'integer'),
-    Field('cod_questoes'),
+    Field('tempo', 'time', requires=IS_NOT_EMPTY()),
+    Field('num_e', 'integer', requires=IS_NOT_EMPTY()),
+    Field('num_m', 'integer', requires=IS_NOT_EMPTY()),
+    Field('num_h', 'integer', requires=IS_NOT_EMPTY()),
+    Field('topic_name', requires=IS_NOT_EMPTY()),
+    Field('parte', requires=IS_NOT_EMPTY()),
+    Field('num_total', 'integer', requires=IS_NOT_EMPTY()),
+    Field('cod_questoes', requires=IS_NOT_EMPTY()),
 )
 
 db.define_table(

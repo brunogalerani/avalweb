@@ -1,8 +1,11 @@
 {{extend 'layout.html'}}
 
-<h2>Input form</h2>
-<form action='/avalweb3/login/log' method="POST">
-	<input type="text" name="user_prof">
-	<input type="password" name="passw_prof">
-	<input type="submit">
+<h2>Login de professor</h2>
+<!-- <form action='/avalweb3/login/log_prof' method="POST">
+	<label for="user_prof">Usuário: </label><br>
+	<input type="text" name="user_prof"><br><br>
+	<label for="passw_prof">Senha: </label><br>
+	<input type="password" name="passw_prof"><br><br>
+	<input type="submit"> -->
+	{{=form}}
 </form>
