@@ -30,3 +30,29 @@ def questao():
 		response.flash=T("Questão cadastrada com sucesso!")
 
 	return dict(form=form)
+
+def provae():
+	labels = {'total':'Total de Questões', 'tempo':'Tempo', 'topic_name':'Disciplina', 'parte':'Parte do Conteúdo', 'aval':'Tipo da Prova',}
+
+	form = SQLFORM.factory(
+    Field('tempo', 'time', requires=IS_NOT_EMPTY()),
+    Field('topic_name', requires=IS_NOT_EMPTY()),
+    Field('parte', requires=IS_NOT_EMPTY()),
+    Field('aval', requires=IS_NOT_EMPTY()),
+    Field('total', requires=IS_NOT_EMPTY()),
+	labels = labels)
+
+	form.vars.user_prof = session.user_prof
+	if form.process(session=None, formname='test').accepted:
+		db.provas.insert(**{'user_prof' : session.user_prof, 'topic_name' : form.vars.topic_name, 'modo_prova' : 'estatica' ,'aval' : form.vars.aval})
+		provaId = db().select(db.provas.id).last()
+		dicionario = form.vars.copy()
+		dicionario.update({'cod_prova': provaId})
+		db.provase.insert(**dicionario)
+		response.flash=T("Prova Cadastrada com Sucesso!")
+
+	return dict(form=form)
+
+def provad():
+
+	return dict()

@@ -62,12 +62,9 @@ db.define_table(
     Field('cod_prova', db.provas, requires=IS_NOT_EMPTY()),
     Field('user_prof', db.professor, writable=False),
     Field('tempo', 'time', requires=IS_NOT_EMPTY()),
-    Field('num_e', 'integer', requires=IS_NOT_EMPTY()),
-    Field('num_m', 'integer', requires=IS_NOT_EMPTY()),
-    Field('num_h', 'integer', requires=IS_NOT_EMPTY()),
+    Field('total', 'integer', requires=IS_NOT_EMPTY()),
     Field('topic_name', requires=IS_NOT_EMPTY()),
     Field('parte', requires=IS_NOT_EMPTY()),
-    Field('num_total', 'integer', requires=IS_NOT_EMPTY()),
     Field('cod_questoes', requires=IS_NOT_EMPTY()),
 )
 

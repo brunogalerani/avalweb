@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+{{=form}}
+<script type="text/javascript">
+	$(document).ready(function(){
+		var aux = 0;
+		document.getElementsByName("total")[0].addEventListener('change', function(){
+			if(aux != 0){
+				$(".auxQuestao").remove();
+			}
+			var valor = parseInt(document.getElementsByName("total")[0].value);
+			if(valor <= 0){
+				alert('Digite um valor acima de zero');
+			}
+			else{
+				for (var i = 1; i <= valor ; i++) {
+				var label = '<tr class="auxQuestao"><td class="w2p_fl"><label class="" for="questao' + i + '">Questão ' + i +': </label></td>'
+
+				$(this).closest("table").find("tr:last").prev().after(label + "<td><input type='text' name='questao" + i + "' required></td></tr>");
+			}
+			aux = valor;
+			}
+		});
+	});
+
+</script>
