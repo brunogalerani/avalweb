@@ -47,9 +47,16 @@ def provae():
 		db.provas.insert(**{'user_prof' : session.user_prof, 'topic_name' : form.vars.topic_name, 'modo_prova' : 'estatica' ,'aval' : form.vars.aval})
 		provaId = db().select(db.provas.id).last()
 		dicionario = form.vars.copy()
+
 		dicionario.update({'cod_prova': provaId})
+		questao = ''
+		for i in range(1, int(request.vars.total) + 1):
+			questao += request.vars[str(i)] + ","
+
+		questao = questao[:-1]
+		dicionario.update({'cod_questoes':questao})
 		db.provase.insert(**dicionario)
-		response.flash=T("Prova Cadastrada com Sucesso!")
+		response.flash=T("Prova Cadastrada com Sucesso! ")
 
 	return dict(form=form)
 
