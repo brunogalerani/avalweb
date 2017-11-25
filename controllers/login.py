@@ -1,6 +1,6 @@
 def professor():    
 	if(session.user_prof):
-		redirect('http://www.yahoo.com.br')
+		redirect(URL('controlesprofessor', 'home'))
 	else:
 		labels = {'user_prof':'Usuário', 'passw_prof':'Senha'}
 		form = SQLFORM.factory(
@@ -10,9 +10,9 @@ def professor():
         submit_button='Login')
 
 	if form.process().accepted:
-		for row in db().select(db.professor.user_prof, db.professor.passw_prof):
+		for row in db().select(db.professor.id, db.professor.user_prof, db.professor.passw_prof):
 			if row.user_prof == form.vars.user_prof and row.passw_prof == form.vars.passw_prof:
-				session.user_prof = row.user_prof
+				session.user_prof = row.id
 				redirect(URL('controlesprofessor', 'home'))
 		 			
 		response.flash=T("Usuário ou senha errados!")		
