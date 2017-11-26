@@ -20,7 +20,7 @@ def professor():
 
 def aluno():    
 	if(session.user_aluno):
-		redirect('http://www.yahoo.com.br')
+		redirect(URL('controlesaluno', 'home'))
 	else:
 		labels = {'user_aluno':'Usuário', 'passw_aluno':'Senha'}
 		form = SQLFORM.factory(
@@ -33,7 +33,7 @@ def aluno():
 		for row in db().select(db.aluno.user_aluno, db.aluno.passw_aluno):
 			if row.user_aluno == form.vars.user_aluno and row.passw_aluno == form.vars.passw_aluno:
 				session.user_aluno = row.user_aluno
-				redirect('http://www.web2py.com')
+				redirect(URL('controlesaluno', 'home'))
 		 			
 		response.flash=T("Usuário ou senha errados!")		
 	return dict(form=form)	
