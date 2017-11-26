@@ -30,9 +30,9 @@ def aluno():
         submit_button='Login')
 
 	if form.process().accepted:
-		for row in db().select(db.aluno.user_aluno, db.aluno.passw_aluno):
+		for row in db().select(db.aluno.ALL):
 			if row.user_aluno == form.vars.user_aluno and row.passw_aluno == form.vars.passw_aluno:
-				session.user_aluno = row.user_aluno
+				session.user_aluno = row.id
 				redirect(URL('controlesaluno', 'home'))
 		 			
 		response.flash=T("Usuário ou senha errados!")		
