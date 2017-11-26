@@ -16,8 +16,13 @@ def home():
 					if item.user_aluno == session.user_aluno:						
 						ja_fez = True
 						break
-				if not ja_fez:
+				if ja_fez:
 					session.dinamica = row.cod_prova
+					if session.questaoIds:
+						session.questaoIds = None
+						session.endDinamica = None
+						session.questoesRespondidas = []
+						session.acertos = 0
 					redirect(URL('provas', 'provas_dinamica'))
 					break
 
