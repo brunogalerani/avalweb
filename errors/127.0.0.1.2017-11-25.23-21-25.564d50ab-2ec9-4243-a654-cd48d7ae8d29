@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> define_table argument is not a Field or Table: [<pydal.objects.Field object at 0x03F91170>, <pydal.objects.Field object at 0x03F91910>, <pydal.objects.Field object at 0x03F91BF0>]"
+p3
+sS'layer'
+p4
+S'C:\\Users\\ferna\\Downloads\\web2py\\applications\\avalweb3\\controllers/provas.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0968AEC0, file "C:\\Users\\ferna\\Downloads\\web2py\\applications\\avalweb3\\controllers/provas.py", line 1>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "C:\\Users\\ferna\\Downloads\\web2py\\applications\\avalweb3\\controllers/provas.py", line 34, in <module>\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\globals.py", line 414, in <lambda>\n    self._caller = lambda f: f()\n  File "C:\\Users\\ferna\\Downloads\\web2py\\applications\\avalweb3\\controllers/provas.py", line 21, in provas_estatica\n    form = SQLFORM.factory(fields)\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\sqlhtml.py", line 1927, in factory\n    return SQLFORM(DAL(None).define_table(table_name, *fields_with_clones), **attributes)\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 587, in define_table\n    table = self.lazy_define_table(tablename, *fields, **args)\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\base.py", line 599, in lazy_define_table\n    table = table_class(self, tablename, *fields, **args)\n  File "C:\\Users\\ferna\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\objects.py", line 306, in __init__\n    field\nSyntaxError: define_table argument is not a Field or Table: [<pydal.objects.Field object at 0x03F91170>, <pydal.objects.Field object at 0x03F91910>, <pydal.objects.Field object at 0x03F91BF0>]\n'
+p11
+s.

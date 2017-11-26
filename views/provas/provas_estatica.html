@@ -1,1 +1,19 @@
 {{extend 'layout.html'}}
+{{=form}}
+
+<!-- {{import os 
+			varCount = 0}}
+<img src="{{=URL('default', 'uploads', imagens[varCount])}}"/> -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		{{import os 
+			varCount = 0}}
+        $(".w2p_fl").each(function(){
+        	
+        	$(this).after('<img src="{{=os.path.join(request.folder, "uploads", imagens[varCount]).replace("\\", "\\\\")}}"/>');
+        	
+        });
+    });
+
+</script>

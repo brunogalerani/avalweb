@@ -15,6 +15,7 @@ def home():
 
 		for row2 in db().select(db.provase.cod_prova):			
 			if row2.cod_prova == int(form.vars.cod_prova):
+				session.estatica = row2.cod_prova
 				redirect(URL('provas', 'provas_estatica'))
 				break
 
