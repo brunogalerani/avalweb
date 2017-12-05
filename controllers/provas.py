@@ -3,7 +3,7 @@ import os
 def provas_dinamica():
 	dicionario = {}
 	provaId = session.dinamica
-	row = db(db.provasd.id==provaId, db.provasd.dif_inicio).select().first()
+	row = db(db.provasd.cod_prova==provaId, db.provasd.dif_inicio).select().first()
 
 	if session.questaoIds == None:
 		row2 = db(db.questoes.dificuldade==row.dif_inicio, db.questoes.id).select(orderby='<random>').first()
@@ -25,7 +25,6 @@ def provas_dinamica():
 
 	if form.accepts(request.vars, session):
 		if form.vars.values()[0] == "certo":
-			print("aaaaaaa")				
 			session.acertos += 1
 
 		if session.endDinamica:
@@ -35,7 +34,7 @@ def provas_dinamica():
 
 def provas_estatica():
 	provaId = session.estatica
-	row = db(db.provase.id==provaId, db.provase.ALL).select().first()
+	row = db(db.provase.cod_prova==provaId, db.provase.ALL).select().first()
 	total = row.total
 	questoes = row.cod_questoes.split(',')
 	fields = []
@@ -73,7 +72,7 @@ def provas_estatica():
 
 def feedback_estatica():
 	provaId = session.estatica
-	row = db(db.provase.id==provaId, db.provase.ALL).select().first()
+	row = db(db.provase.cod_prova==provaId, db.provase.ALL).select().first()
 	questoes = row.cod_questoes.split(',')
 	divs = ""	
 	for i in range(len(questoes)):
@@ -88,7 +87,7 @@ def feedback_estatica():
 
 def feedback_dinamica():
 	divs = ""
-	row = db(db.provasd.id==session.dinamica, db.provasd.ALL).select().first()
+	row = db(db.provasd.cod_prova==session.dinamica, db.provasd.ALL).select().first()
 	for i in range(len(session.questoesRespondidas)-1):
 		questao = db(db.questoes.id==session.questoesRespondidas[i], db.questoes.ALL).select().first()
 		divs += '<div style="display:inline-block; margin-right: 150px; margin-bottom: 50px;"><p style="margin-left:20px;">Questão ' + str(i+1) + "</p>" 
@@ -99,7 +98,7 @@ def feedback_dinamica():
 	
 	nota_por_acerto = float(10.00/float(2))
 
-	nota = float(session.acertos) * nota_por_acerto
+	nota = session.acertos * nota_por_acerto
 	user_prof = row.user_prof
 	user_aluno = session.user_aluno
 	cod_prova = session.dinamica

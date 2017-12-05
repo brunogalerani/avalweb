@@ -16,7 +16,7 @@ def home():
 					if item.user_aluno == session.user_aluno:						
 						ja_fez = True
 						break
-				if ja_fez:
+				if not ja_fez:
 					session.dinamica = row.cod_prova
 					if session.questaoIds:
 						session.questaoIds = None

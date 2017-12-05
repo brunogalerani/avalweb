@@ -268,3 +268,93 @@ CREATE TABLE `provas_uploads`(
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2017-12-05T17:35:05.639000
+CREATE TABLE `aluno`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_aluno` VARCHAR(64) UNIQUE,
+    `passw_aluno` VARCHAR(512),
+    `nome_aluno` VARCHAR(512),
+    `email_aluno` VARCHAR(100) UNIQUE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:05.878000
+CREATE TABLE `professor`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_prof` VARCHAR(64) UNIQUE,
+    `passw_prof` VARCHAR(512),
+    `nome_prof` VARCHAR(512),
+    `email_prof` VARCHAR(100) UNIQUE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:06.363000
+CREATE TABLE `questoes`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `topic_name` VARCHAR(512),
+    `user_prof` INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE,
+    `enunciado` LONGTEXT,
+    `video_enunc` VARCHAR(512),
+    `resposta` LONGTEXT,
+    `resp1` LONGTEXT,
+    `resp2` LONGTEXT,
+    `resp3` LONGTEXT,
+    `feed_resp` LONGTEXT,
+    `feed_r1` LONGTEXT,
+    `feed_r2` LONGTEXT,
+    `feed_r3` VARCHAR(512),
+    `dificuldade` VARCHAR(512),
+    `acerto_goto` VARCHAR(512),
+    `erro_goto` VARCHAR(512),
+    `topic` LONGTEXT,
+    `parte` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:06.627000
+CREATE TABLE `provas`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_prof` INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE,
+    `topic_name` VARCHAR(512),
+    `modo_prova` VARCHAR(512),
+    `aval` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:06.851000
+CREATE TABLE `provasd`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `cod_prova` INT  , INDEX `cod_prova__idx` (`cod_prova`), FOREIGN KEY (`cod_prova`) REFERENCES `provas` (`id`) ON DELETE CASCADE,
+    `user_prof` INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE,
+    `tempo` TIME,
+    `dificuldade` VARCHAR(512),
+    `dif_inicio` VARCHAR(512),
+    `topic_name` VARCHAR(512),
+    `parte` VARCHAR(512),
+    `num_total` INTEGER,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:07.107000
+CREATE TABLE `provase`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `cod_prova` INT  , INDEX `cod_prova__idx` (`cod_prova`), FOREIGN KEY (`cod_prova`) REFERENCES `provas` (`id`) ON DELETE CASCADE,
+    `user_prof` INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE,
+    `tempo` TIME,
+    `total` INTEGER,
+    `topic_name` VARCHAR(512),
+    `parte` VARCHAR(512),
+    `cod_questoes` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-12-05T17:35:07.283000
+CREATE TABLE `provas_uploads`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_prof` INT  , INDEX `user_prof__idx` (`user_prof`), FOREIGN KEY (`user_prof`) REFERENCES `professor` (`id`) ON DELETE CASCADE,
+    `user_aluno` INT  , INDEX `user_aluno__idx` (`user_aluno`), FOREIGN KEY (`user_aluno`) REFERENCES `aluno` (`id`) ON DELETE CASCADE,
+    `cod_prova` INT  , INDEX `cod_prova__idx` (`cod_prova`), FOREIGN KEY (`cod_prova`) REFERENCES `provas` (`id`) ON DELETE CASCADE,
+    `nota` DOUBLE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
