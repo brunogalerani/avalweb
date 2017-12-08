@@ -1,2 +1,26 @@
 {{extend 'layout.html'}}
+<style>
+      table{
+        width: 100%;
+        text-align: justify;
+        border-collapse: collapse;
+        overflow-x: auto;
+      }
+      thead{
+        border-bottom: #26a69a solid 4px;
+      }
+      table > thead > tr > th, table > tbody > tr > td{
+        padding: 10px;
+      }
+      tbody > tr:not(:last-child){
+        border-bottom: #ececec 1px solid;
+      }
+      tbody > tr > td:nth-of-type(2){
+        background-color: #e2e2e2;
+      }
+      span{
+        font-size: 10px;
+        font-weight: 100;
+      }
+</style>
 {{=divs}}

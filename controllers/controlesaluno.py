@@ -19,9 +19,7 @@ def home():
 				if not ja_fez:
 					session.dinamica = row.cod_prova
 					if session.questaoIds:
-						session.questaoIds = None
-						session.endDinamica = None
-						session.questoesRespondidas = []
+						session.questaoIds = []						
 						session.acertos = 0
 					redirect(URL('provas', 'provas_dinamica'))
 					break
