@@ -47,7 +47,8 @@ def provae():
 	form.vars.user_prof = session.user_prof
 	if form.process(session=None, formname='test').accepted:
 		db.provas.insert(**{'user_prof' : session.user_prof, 'topic_name' : form.vars.topic_name, 'modo_prova' : 'estatica' ,'aval' : form.vars.aval})
-		provaId = db().select(db.provas.id).last()
+		provaId = db().select(db.provas.ALL).last()
+		print(provaId.id)
 		dicionario = form.vars.copy()
 
 		questao = ''
@@ -55,7 +56,7 @@ def provae():
 			questao += request.vars[str(i)] + ","
 
 		questao = questao[:-1]
-		dicionario.update({'cod_questoes':questao, 'cod_prova': provaId})
+		dicionario.update({'cod_questoes':questao, 'cod_prova': provaId.id})
 		db.provase.insert(**dicionario)
 		response.flash=T("Prova Cadastrada com Sucesso! ")
 
@@ -78,7 +79,7 @@ def provad():
 	form.vars.user_prof = session.user_prof
 	if form.process(session=None, formname='test').accepted:
 		db.provas.insert(**{'user_prof' : session.user_prof, 'topic_name' : form.vars.topic_name, 'modo_prova' : 'dinamica' ,'aval' : form.vars.aval})
-		provaId = db().select(db.provas.id).last()
+		provaId = db().select(db.provas.ALL).last()
 		dicionario = form.vars.copy()
 		dicionario.update({'cod_prova': provaId})
 		db.provasd.insert(**dicionario)

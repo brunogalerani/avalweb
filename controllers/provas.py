@@ -1,4 +1,24 @@
 import os
+import thread
+import time
+from datetime import datetime
+
+def time_thread(delay, duracao):
+	tempo_inicio = datetime.now().time()
+	acabou_hora = tempo_inicio.hour + duracao.hour
+	acabou_minutos = tempo_inicio.minute + duracao.minute
+	acabou_segundos = tempo_inicio.second + duracao.second
+
+	while 1:
+		tempo_atual = datetime.now().time()
+		
+		if tempo_atual.hour == acabou_hora and tempo_atual.minute == acabou_minutos and tempo_atual.second == acabou_segundos:
+			print("acabou")
+			thread.exit()					
+
+		print("not yet")
+		time.sleep(delay)
+	return
 
 def provas_dinamica():
 	provaId = session.dinamica
@@ -93,6 +113,13 @@ def provas_estatica():
 		fields.append(field)
 
 	form = SQLFORM.factory(*fields, labels=labels)
+	
+	duracao = row.tempo	
+
+	try:
+		thread.start_new_thread( time_thread, (1, duracao))
+	except:
+		print "Error: unable to start thread"
 
 	if form.accepts(request.vars, session):		
 		nota = 0

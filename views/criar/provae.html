@@ -18,7 +18,7 @@
                 var label = '<tr class="auxQuestao"><td class="w2p_fl"><label class="" for="questao' + i + '">Questão ' + i +': </label></td>'
 
                 var input = "<select class='generic-widget' name='" + i + "'>" +
-                    "{{for row in db().select(db.questoes.id):}}<option value='{{=row.id}}'>{{=row.id}}</option>{{pass}}</select>"
+                    "{{for row in db().select(db.questoes.ALL):}}<option value='{{=row.id}}'>{{=row.enunciado}}</option>{{pass}}</select>"
 
                 $(this).closest("table").find("tr:last").prev().after(label + "<td>" + input + "</td></tr>");
             }

@@ -1,0 +1,337 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> "
+p3
+sS'layer'
+p4
+S'C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\views\\criar/provae.html'
+p5
+sS'code'
+p6
+S'response.write(\'<!DOCTYPE html>\\r\\n<html>\\r\\n  <head>\\r\\n    <meta charset="utf-8">\\r\\n    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">\\r\\n    <meta name="viewport" content="width=device-width, initial-scale=1.0" />\\r\\n    <meta name="apple-mobile-web-app-capable" content="yes" />\\r\\n    <link href="\', escape=False)\nresponse.write(URL(\'static\',\'css/calendar.css\'))\nresponse.write(\'" rel="stylesheet" type="text/css"/>\\r\\n    <link href="\', escape=False)\nresponse.write(URL(\'static\',\'css/web2py.css\'))\nresponse.write(\'" rel="stylesheet" type="text/css"/>\\r\\n    <link href="\', escape=False)\nresponse.write(URL(\'static\',\'css/stupid.css\'))\nresponse.write(\'" rel="stylesheet" type="text/css"/>\\r\\n    <link href="\', escape=False)\nresponse.write(URL(\'static\',\'css/examples.css\'))\nresponse.write(\'" rel="stylesheet" type="text/css"/>\\r\\n    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">\\r\\n    <link rel="shortcut icon" href="\', escape=False)\nresponse.write(URL(\'static\',\'images/favicon.ico\'))\nresponse.write(\'" type="image/x-icon">\\r\\n    <link rel="apple-touch-icon" href="\', escape=False)\nresponse.write(URL(\'static\',\'images/favicon.png\'))\nresponse.write(\'">\\r\\n    \', escape=False)\nleft_sidebar_enabled = globals().get(\'left_sidebar_enabled\', False)\nright_sidebar_enabled = globals().get(\'right_sidebar_enabled\', False)\nmiddle_column = {0: \'fill\', 1: \'threequarters\', 2: \'half\'}[\n(left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]\nresponse.write(\'\\r\\n    \', escape=False)\nresponse.write(\'<script type="text/javascript"><!--\\r\\n    // These variables are used by the web2py_ajax_init function in web2py_ajax.js (which is loaded below).\\r\\n    \', escape=False)\nresponse.write(ASSIGNJS(\nw2p_ajax_confirm_message = T(\'Are you sure you want to delete this object?\'),\nw2p_ajax_date_format = T(\'%Y-%m-%d\'),\nw2p_ajax_datetime_format = T(\'%Y-%m-%d %H:%M:%S\'),\najax_error_500 = T.M(\'An error occured, please [[reload %s]] the page\') % URL(args=request.args, vars=request.get_vars)\n))\nresponse.write(\'\\r\\n    //--></script>\\r\\n\', escape=False)\nresponse.files.insert(0,URL(\'static\',\'js/jquery.js\'))\nresponse.files.insert(1,URL(\'static\',\'css/calendar.css\'))\nresponse.files.insert(2,URL(\'static\',\'js/calendar.js\'))\nresponse.files.insert(3,URL(\'static\',\'js/web2py.js\'))\nresponse.include_meta()\nresponse.include_files()\nresponse.write(\'\\r\\n\', escape=False)\nresponse.write(\'\\r\\n  </head>\\r\\n  <body class="black">   \\r\\n    <header class="black padded">      \\r\\n      <div class="container middle max900">\\r\\n        <div class="fill middle">                    \\r\\n          <label class="ham" for="menu"><i class="fa fa-bars padded"></i></label>\\r\\n          <div class="burger accordion">\\r\\n            <input type="checkbox" id="menu"/>\\r\\n            \', escape=False)\nresponse.write(MENU(response.menu,_class=\'menu\'))\nresponse.write(\'\\r\\n          </div>\\r\\n        </div>\\r\\n      </div>\\r\\n    </header>\\r\\n    \', escape=False)\nif response.flash:\n    response.write(\'\\r\\n    <div class="w2p_flash">\\r\\n      \', escape=False)\n    response.write(response.flash)\n    response.write(\'\\r\\n    </div>\\r\\n    \', escape=False)\n    pass\nresponse.write(\'\\r\\n    <main class="white">\\r\\n      <div class="container max900">\\r\\n        \', escape=False)\nif left_sidebar_enabled:\n    response.write(\'\\r\\n        <div class="quarter padded">\', escape=False)\n    response.write(\'</div>\\r\\n        \', escape=False)\n    pass\nresponse.write(\'\\r\\n        <div class="\', escape=False)\nresponse.write(middle_column)\nresponse.write(\' padded">\', escape=False)\nresponse.write(\'\\r\\n\\r\\n\', escape=False)\nresponse.write(form)\nresponse.write(\'\\r\\n\\r\\n<script type="text/javascript">\\r\\n    $(document).ready(function(){\\r\\n        var aux = 0;\\r\\n        document.getElementsByName("total")[0].addEventListener(\\\'change\\\', function(){\\r\\n            if(aux != 0){\\r\\n                $(".auxQuestao").remove();\\r\\n            }\\r\\n            var valor = parseInt(document.getElementsByName("total")[0].value);\\r\\n            if(valor <= 0){\\r\\n                alert(\\\'Digite um valor acima de zero\\\');\\r\\n            }\\r\\n            else{\\r\\n                for (var i = 1; i <= valor ; i++) {\\r\\n                var label = \\\'<tr class="auxQuestao"><td class="w2p_fl"><label class="" for="questao\\\' + i + \\\'">Quest\\xc3\\xa3o \\\' + i +\\\': </label></td>\\\'\\r\\n\\r\\n                var input = "<select class=\\\'generic-widget\\\' name=\\\'" + i + "\\\'>" +\\r\\n                    "\', escape=False)\nfor row in db().select(db.questoes.id):\n    response.write("<option value=\'", escape=False)\n    response.write(row.id)\n    response.write("\'>", escape=False)\n    response.write(row.enunciado)\n    response.write(\'</option>\', escape=False)\n    pass\nresponse.write(\'</select>"\\r\\n\\r\\n                $(this).closest("table").find("tr:last").prev().after(label + "<td>" + input + "</td></tr>");\\r\\n            }\\r\\n            aux = valor;\\r\\n            }\\r\\n        });\\r\\n    });\\r\\n</script>\', escape=False)\nresponse.write(\'</div>\\r\\n        \', escape=False)\nif right_sidebar_enabled:\n    response.write(\'\\r\\n        <div class="quarter padded">\', escape=False)\n    response.write(\'</div>\\r\\n        \', escape=False)\n    pass\nresponse.write(\'\\r\\n      </div>     \\r\\n    </main>\\r\\n    <footer class="black">\\r\\n      <div class="container padded max900">\\r\\n        <div class="fill">\\r\\n          Copyright @ 2016 - Powered by Web2py\\r\\n        </div>\\r\\n      </div>\\r\\n    </footer>\\r\\n  </body>  \\r\\n  <script>\\r\\n    // prevent android horizontal scrolling\\r\\n    window.addEventListener("scroll", function(){window.scroll(0, window.pageYOffset);}, false);\\r\\n  </script>\\r\\n</html>\\r\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__getslice__'
+p12
+S"<method-wrapper '__getslice__' of exceptions.AttributeError object>"
+p13
+sS'__str__'
+p14
+S"<method-wrapper '__str__' of exceptions.AttributeError object>"
+p15
+sS'__reduce__'
+p16
+S'<built-in method __reduce__ of exceptions.AttributeError object>'
+p17
+sS'__dict__'
+p18
+S'{}'
+p19
+sS'message'
+p20
+S"''"
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of exceptions.AttributeError object>'
+p23
+sS'__init__'
+p24
+S"<method-wrapper '__init__' of exceptions.AttributeError object>"
+p25
+sS'__setattr__'
+p26
+S"<method-wrapper '__setattr__' of exceptions.AttributeError object>"
+p27
+sS'__reduce_ex__'
+p28
+S'<built-in method __reduce_ex__ of exceptions.AttributeError object>'
+p29
+sS'__new__'
+p30
+S'<built-in method __new__ of type object>'
+p31
+sS'__format__'
+p32
+S'<built-in method __format__ of exceptions.AttributeError object>'
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.AttributeError'>"
+p35
+sS'__doc__'
+p36
+S"'Attribute not found.'"
+p37
+sS'__getitem__'
+p38
+S"<method-wrapper '__getitem__' of exceptions.AttributeError object>"
+p39
+sS'__setstate__'
+p40
+S'<built-in method __setstate__ of exceptions.AttributeError object>'
+p41
+sS'__getattribute__'
+p42
+S"<method-wrapper '__getattribute__' of exceptions.AttributeError object>"
+p43
+sS'args'
+p44
+S'()'
+p45
+sS'__subclasshook__'
+p46
+S'<built-in method __subclasshook__ of type object>'
+p47
+sS'__unicode__'
+p48
+S'<built-in method __unicode__ of exceptions.AttributeError object>'
+p49
+sS'__delattr__'
+p50
+S"<method-wrapper '__delattr__' of exceptions.AttributeError object>"
+p51
+sS'__repr__'
+p52
+S"<method-wrapper '__repr__' of exceptions.AttributeError object>"
+p53
+sS'__hash__'
+p54
+S"<method-wrapper '__hash__' of exceptions.AttributeError object>"
+p55
+ssS'evalue'
+p56
+S''
+sS'request'
+p57
+cgluon.html
+XML_unpickle
+p58
+(S's\xf9_\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>avalweb3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>criar</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-4e7f3d66-7e2b-4bdb-a5ed-1dd675401327<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_avalweb3</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-2eaffa7f-8a01-44ec-b232-b4bb0b112c2e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-2eaffa7f-8a01-44ec-b232-b4bb0b112c2e; session_id_admin=127.0.0.1-4e7f3d66-7e2b-4bdb-a5ed-1dd675401327; session_id_avalweb3=127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/avalweb3/controlesprofessor/home</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/avalweb3/criar/provae</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>62657</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>Bruno-PC</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\avalweb3\\\\&#x27;, &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\welcome\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x31e9af8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Bruno-PC&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-2eaffa7f-8a01-44ec-b232-b4bb0b112c2e; session_id_admin=127.0.0.1-4e7f3d66-7e2b-4bdb-a5ed-1dd675401327; session_id_avalweb3=127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/avalweb3/controlesprofessor/home</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_py2</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::85c7:6bbb:13b4:1de8%11</div></td></tr><tr><td><div>192.168.1.34</div></td></tr><tr><td><div>2804:431:b705:3b65:d9ac:2374:867d:f0a0</div></td></tr><tr><td><div>Bruno-PC.home</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>2804:431:b705:3b65:85c7:6bbb:13b4:1de8</div></td></tr><tr><td><div>fd9a:ca93:c921:1:d9ac:2374:867d:f0a0</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>fd9a:ca93:c921:1:85c7:6bbb:13b4:1de8</div></td></tr><tr><td><div>Bruno-PC</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/avalweb3/criar/provae</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>62657</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/avalweb3/criar/provae</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>Bruno-PC</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.15.4-stable+timestamp.2017.09.02.04.02.22</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x01D0D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x034F2AE8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x0496C630&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x01D0D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x034F2AE8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x0496C630&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>provae</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\avalweb3\\\\&#x27;, &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\welcome\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x31e9af8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Bruno-PC&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_py2</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::85c7:6bbb:13b4:1de8%11</div></td></tr><tr><td><div>192.168.1.34</div></td></tr><tr><td><div>2804:431:b705:3b65:d9ac:2374:867d:f0a0</div></td></tr><tr><td><div>Bruno-PC.home</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>2804:431:b705:3b65:85c7:6bbb:13b4:1de8</div></td></tr><tr><td><div>fd9a:ca93:c921:1:d9ac:2374:867d:f0a0</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>fd9a:ca93:c921:1:85c7:6bbb:13b4:1de8</div></td></tr><tr><td><div>Bruno-PC</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.15.4-stable+timestamp.2017.09.02.04.02.22</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 12, 10, 21, 34, 23, 662000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/avalweb3/criar/provae</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 12, 10, 23, 34, 23, 662000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x042F3A90&gt;</div></td></tr></table></div>'
+tRp59
+sS'frames'
+p60
+(lp61
+(dp62
+S'file'
+p63
+S'C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\restricted.py'
+p64
+sS'dump'
+p65
+(dp66
+S'environment'
+p67
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p68
+sS'ccode'
+p69
+S'<code object <module> at 034133C8, file "C:\\User...ations\\avalweb3\\views\\criar/provae.html", line 1>'
+p70
+ssS'lnum'
+p71
+I219
+sS'lines'
+p72
+(dp73
+I214
+S'    if environment is None:'
+p74
+sI215
+S'        environment = {}'
+p75
+sI216
+S"    environment['__file__'] = layer"
+p76
+sI217
+S"    environment['__name__'] = '__restricted__'"
+p77
+sI218
+S'    try:'
+p78
+sI219
+S'        exec(ccode, environment)'
+p79
+sI220
+S'    except HTTP:'
+p80
+sI221
+S'        raise'
+p81
+sI222
+S'    except RestrictedError:'
+p82
+sI223
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p83
+ssS'call'
+p84
+S'(ccode=<code object <module> at 034133C8, file "C:\\User...ations\\avalweb3\\views\\criar/provae.html", line 1>, environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'ASSIGNJS\': <function ASSIGNJS>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, \'CAT\': <class \'gluon.html.CAT\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, ...}, layer=r\'C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\views\\criar/provae.html\', scode=r"response.write(\'<!DOCTYPE html>\\r\\n<html>\\r\\n  <...e);\\r\\n  </script>\\r\\n</html>\\r\\n\', escape=False)")'
+p85
+sS'func'
+p86
+S'restricted'
+p87
+sa(dp88
+g63
+S'C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\views\\criar\\provae.html'
+p89
+sg65
+(dp90
+sg71
+I57
+sg72
+(dp91
+I64
+S"    response.write('</div>\\r\\n        ', escape=False)"
+p92
+sI65
+S'    pass'
+p93
+sI66
+S'response.write(\'\\r\\n      </div>     \\r\\n    </main>\\r\\n    <footer class="black">\\r\\n      <div class="container padded max900">\\r\\n        <div class="fill">\\r\\n          Copyright @ 2016 - Powered by Web2py\\r\\n        </div>\\r\\n      </div>\\r\\n    </footer>\\r\\n  </body>  \\r\\n  <script>\\r\\n    // prevent android horizontal scrolling\\r\\n    window.addEventListener("scroll", function(){window.scroll(0, window.pageYOffset);}, false);\\r\\n  </script>\\r\\n</html>\\r\\n\', escape=False)'
+p94
+sI48
+S'response.write(middle_column)'
+p95
+sI49
+S'response.write(\' padded">\', escape=False)'
+p96
+sI50
+S"response.write('\\r\\n\\r\\n', escape=False)"
+p97
+sI51
+S'response.write(form)'
+p98
+sI52
+S'response.write(\'\\r\\n\\r\\n<script type="text/javascript">\\r\\n    $(document).ready(function(){\\r\\n        var aux = 0;\\r\\n        document.getElementsByName("total")[0].addEventListener(\\\'change\\\', function(){\\r\\n            if(aux != 0){\\r\\n                $(".auxQuestao").remove();\\r\\n            }\\r\\n            var valor = parseInt(document.getElementsByName("total")[0].value);\\r\\n            if(valor <= 0){\\r\\n                alert(\\\'Digite um valor acima de zero\\\');\\r\\n            }\\r\\n            else{\\r\\n                for (var i = 1; i <= valor ; i++) {\\r\\n                var label = \\\'<tr class="auxQuestao"><td class="w2p_fl"><label class="" for="questao\\\' + i + \\\'">Quest\\xc3\\xa3o \\\' + i +\\\': </label></td>\\\'\\r\\n\\r\\n                var input = "<select class=\\\'generic-widget\\\' name=\\\'" + i + "\\\'>" +\\r\\n                    "\', escape=False)'
+p99
+sI53
+S'for row in db().select(db.questoes.id):'
+p100
+sI54
+S'    response.write("<option value=\'", escape=False)'
+p101
+sI55
+S'    response.write(row.id)'
+p102
+sI56
+S'    response.write("\'>", escape=False)'
+p103
+sI57
+S'    response.write(row.enunciado)'
+p104
+sI58
+S"    response.write('</option>', escape=False)"
+p105
+sI59
+S'    pass'
+p106
+sI60
+S'response.write(\'</select>"\\r\\n\\r\\n                $(this).closest("table").find("tr:last").prev().after(label + "<td>" + input + "</td></tr>");\\r\\n            }\\r\\n            aux = valor;\\r\\n            }\\r\\n        });\\r\\n    });\\r\\n</script>\', escape=False)'
+p107
+sI61
+S"response.write('</div>\\r\\n        ', escape=False)"
+p108
+sI62
+S'if right_sidebar_enabled:'
+p109
+sI63
+S'    response.write(\'\\r\\n        <div class="quarter padded">\', escape=False)'
+p110
+ssg84
+S'()'
+p111
+sg86
+S'<module>'
+p112
+sa(dp113
+g63
+S'C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\objects.py'
+p114
+sg65
+(dp115
+S'builtinAttributeError'
+p116
+S"<type 'exceptions.AttributeError'>"
+p117
+ssg71
+I99
+sg72
+(dp118
+I96
+S'        try:'
+p119
+sI97
+S'            return self.__getitem__(k)'
+p120
+sI98
+S'        except KeyError:'
+p121
+sI99
+S'            raise AttributeError'
+p122
+sI100
+S''
+sI101
+S'    def __copy__(self):'
+p123
+sI102
+S'        return Row(self)'
+p124
+sI103
+S''
+sI94
+S''
+sI95
+S'    def __getattr__(self, k):'
+p125
+ssg84
+S"(self=<Row {'id': 1L}>, k='enunciado')"
+p126
+sg86
+S'__getattr__'
+p127
+sasS'pyver'
+p128
+S'Python 2.7.9: C:\\Users\\Bruno\\Downloads\\web2py\\web2py.exe (prefix: C:\\Python27)'
+p129
+sS'session'
+p130
+g58
+(S'sB\x04\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">acerto</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">dif_proxima</td><td style="vertical-align:top;">:</td><td><div>F\xc3\xa1cil</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">dinamica</td><td style="vertical-align:top;">:</td><td><div>3L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">estatica</td><td style="vertical-align:top;">:</td><td><div>13L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">prox_questao</td><td style="vertical-align:top;">:</td><td><div>2L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">questaoIds</td><td style="vertical-align:top;">:</td><td><div>3L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_aluno</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_prof</td><td style="vertical-align:top;">:</td><td><div>3L</div></td></tr></table></div>'
+tRp131
+sS'etype'
+p132
+S"<type 'exceptions.AttributeError'>"
+p133
+sS'date'
+p134
+S'Sun Dec 10 21:34:23 2017'
+p135
+sS'response'
+p136
+g58
+(S's\xaf\x19\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x042F37A0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_avalweb3</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>/avalweb3/static/js/jquery.js</div></td></tr><tr><td><div>/avalweb3/static/css/calendar.css</div></td></tr><tr><td><div>/avalweb3/static/js/calendar.js</div></td></tr><tr><td><div>/avalweb3/static/js/web2py.js</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/avalweb3/default/index</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Sair</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/avalweb3/logout/logout</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^criar/\\w+\\.py$</div></td></tr><tr><td><div>^criar/provae/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_avalweb3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;C:\\\\Users\\\\Bruno\\\\Downloads\\\\web2py\\\\applications\\\\avalweb3\\\\sessions\\\\140\\\\04c\\\\127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db&#x27;, mode &#x27;rb+&#x27; at 0x0416CA70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\sessions\\127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>c788ea732f0cba79d0d2546e63fd4be9</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-0fccba78-3f84-4f55-aaeb-eb0c8ccdb7db</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_avalweb3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>avalweb3</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>criar/provae.html</div></td></tr></table></div>'
+tRp137
+sS'locals'
+p138
+(dp139
+S'k'
+S"'enunciado'"
+p140
+sS'self'
+p141
+S"<Row {'id': 1L}>"
+p142
+sssS'traceback'
+p143
+S'Traceback (most recent call last):\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\applications\\avalweb3\\views\\criar/provae.html", line 57, in <module>\n  File "C:\\Users\\Bruno\\Downloads\\web2py\\gluon\\packages\\dal\\pydal\\objects.py", line 99, in __getattr__\n    raise AttributeError\nAttributeError\n'
+p144
+s.
